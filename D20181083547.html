@@ -1,50 +1,58 @@
-<!DOCTYPE html><html>
-    <title> Lab Test </title>
+<!DOCTYPE html>
+<html>
+<title> Lab Test </title>
 
 <body>
   <center>
-    <fieldset style="width: 50%; position: right; "> 
-      <form >
+    <fieldset style="width: 50%; position: right; ">
+      <form>
         <label for="fname">Enter your name:</label>
-        <input type="text" id="name" name="name"> <br><br>   
+        <input type="text" id="name_input" name="name"> <br><br>
         <label for="birthday">Enter your birthday:</label>
-        <input type="date" id="birthday" name="birthday" ><br>
-        <button type="submit" onclick = "myAge()"> Submit </button> <br><br>
-        <input type="submit" value="Submit" onclick="()">
+        <input type="date" id="birthday_input" name="birthday"><br>
+        <button type="button" onclick="myAge()"> Submit </button>
+        <br><br>
       </form>
-        <p>id=name</p>
-        <p>id=age</p>
-        <p>id=status jer</p>
+      <br />
+      Hello <span id="name">&lt;name&gt;</span> <br />
+      You are <span id="age">&lt;based on birthday&gt;</span> year-old <br />
+      <span id="status">&lt;status&gt;</span>
     </fieldset>
-</center>
-		
-<script>
-    function myAge()  {
-	    var age = document.AgeForm.age.value;
-        var name = document.getElementByName("name").value;
-        var d = new Date();
-        var current_year = d.getFullYear();
-        var birthday = document.getElementById("birthday").value;
-        var b = new Date(x);
-        var status = document.getElementById("status").value;
-        var born_year = b.getFullYear();
-        var age= current_year - born_year;
-        
+  </center>
 
-
-	if(age< 20){
-		$status = "You are still young!";
-	}
-	else if(age>= 20 && $age< 25){
-		$status = "Now start thinking to have your own family!";
-	}
-	else(age > 25){
-		$status = "Be responsible and care about others!";
+  <style>
+    span {
+      color: red;
     }
-}
+  </style>
 
-return document.getElementById("name").innerHTML =  "Hello " + name + " years old ";
-    </script>
-    
+  <script>
+    function myAge() {
+      var name = document.getElementById("name_input").value;
+      var d = new Date();
+      var current_year = d.getFullYear();
+      var birthday_input = document.getElementById("birthday_input").value;
+      var b = new Date(birthday_input);
+      var status = "";
+      var born_year = b.getFullYear();
+      var age = current_year - born_year;
+
+      if (age < 20) {
+        status = "You are still young!";
+      }
+      else if (age >= 20 && age < 25) {
+        status = "Now start thinking to have your own family!";
+      }
+      else if (age > 25) {
+        status = "Be responsible and care about others!";
+      }
+
+      document.getElementById("name").innerHTML = name;
+      document.getElementById("age").innerHTML = age;
+      document.getElementById("status").innerHTML = status;
+    }
+  </script>
+
 </body>
+
 </html>
